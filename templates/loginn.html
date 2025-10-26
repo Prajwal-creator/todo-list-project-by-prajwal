@@ -1,0 +1,98 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/log.css'%}">
+    <title>Login - Animated</title>      
+</head>
+<body>
+    {% if messages %}
+    <script>
+        {%for me in messages%}
+           alert("{{me}}");
+        {% endfor %}
+    </script>
+    {%endif%}
+    
+    <!-- Background -->
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="icon-circle">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+            </div>
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Enter your credentials to access your your todolist</p>
+        </div>
+
+        <!-- Form -->
+        <form class="form" method="POST">
+            {%csrf_token%}
+            <!-- Email -->
+            <div class="form-group">
+                <label for="username">username</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="username" 
+                        required
+                    >
+                     <svg class="input-icon" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="8" r="4"></circle>
+                       <path d="M4 20c0-4 4-7 8-7s8 3 8 7"></path>
+                     </svg>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="••••••••" 
+                        required
+                    >
+                    <svg class="input-icon" viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Remember & Forgot -->
+            <div class="form-options">
+                <label class="remember">
+                    <input type="checkbox" name="remember">
+                    <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Sign In</button>
+        </form>
+
+        <!-- Sign Up Link -->
+        <p class="signup-link">
+            Don't have an account? <a href="{% url 'sign'%}">Sign up</a>
+        </p>
+    </div>
+</body>
+</html>

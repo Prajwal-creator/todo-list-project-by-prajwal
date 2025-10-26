@@ -1,0 +1,71 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <title>Welcome to Your Todo List</title>
+    <style></style>
+</head>
+<body>
+    <div class="fullscreen-container">
+        <header class="welcome-header">
+            <h1>🌟 Welcome Back!</h1>
+            <div class="username">{{name}}</div>
+            <p class="welcome-subtitle">Ready to conquer your day? Let's get organized!</p>
+        </header>
+
+        <main class="main-content">
+            <div class="todo-container">
+                <header class="todo-header">
+                    <h2>📝 Your Personal Todo List</h2>
+                </header>
+
+                <section class="add-todo-section">
+                    <form class="input-group"method="POST">
+                        {%csrf_token%}
+                        <label for="todoInput" class="sr-only">Add new todo item</label>
+                        <input 
+                            type="text" 
+                            id="todoInput"
+                            class="todo-input" 
+                            placeholder="What amazing thing will you accomplish today?"
+                            name="toodo"
+                            required
+                        >
+                        <button type="submit" class="add-btn">✨ Add Todo</button>
+                    </form>
+                            {%for i in eng %}
+                        <div class="todo-item">
+                            <a href="#" class="todo-checkbox"></a>
+                            <label for="todo5" class="todo-text">{{i.username}}</label>
+                            <a class="priority-badge medium" href="{%url 'amd' i.srno%}">Edit</a>
+                            <a class="priority-badge low" href="{%url 'homer' i.srno %}">DEL</a>
+                        </div>
+                             {%endfor%}
+
+                <footer class="stats-footer">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">{{num_obj}}</div>
+                            <div class="stat-label">Total Tasks</div>
+                       <!-- </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Remaining</div>
+                        </div>
+                    </div> --> 
+                    <p class="motivational-quote">
+                        "The secret of getting ahead is getting started. You're doing great,{{name}}!"
+                    </p>
+                </footer>
+            </div>
+        </main>
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99181197c508c1c9',t:'MTc2MDk1ODYyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
