@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate ,login ,logout
 from django.contrib.auth.models import User
 from .models import log 
+import random
 from datetime import datetime
 from django.contrib import messages
 
@@ -57,7 +58,3 @@ def delete_task(request,srno):
     task = log.objects.get(srno=srno)
     task.delete()
     return redirect('home')
-
-
-
-
