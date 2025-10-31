@@ -31,6 +31,8 @@ SESSION_COOKIE_SECURE = True
 ALLOWED_HOSTS = ['todo-list-project-by-prajwal.onrender.com', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://todo-list-project-by-prajwal.onrender.com']
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Application definition
 
@@ -54,7 +56,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'guru.urls'
 
@@ -81,8 +82,12 @@ WSGI_APPLICATION = 'guru.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'log',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # or your MySQL server IP
+        'PORT': '3306',
     }
 }
 
