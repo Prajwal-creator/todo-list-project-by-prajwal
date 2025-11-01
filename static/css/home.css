@@ -1,5 +1,4 @@
-
-        body {
+ body {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -140,6 +139,10 @@
         .todo-item {
             display: flex;
             align-items: center;
+            display: flex;
+            align-items: center; /* instead of center, better for multiline */
+            flex-wrap: wrap;         /* allows long text to wrap under buttons */
+            word-break: break-word;
             padding: 25px;
             margin-top: 10px;
             margin-bottom: 20px;
@@ -181,6 +184,9 @@
             color: #333;
             line-height: 1.5;
             font-weight: 500;
+            word-wrap: break-word;      /* allows text to break if too long */
+            overflow-wrap: break-word;  /* modern replacement for word-wrap */
+            white-space: normal;
         }
 
         .priority-badge {
