@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'guru.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'log',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',   # or your MySQL server IP
-        'PORT': '3306',
+        'PASSWORD': 'gTQmhHhTtzGPegRoDrkzmUbTnVvyzyik',
+        'HOST': 'trolley.proxy.rlwy.net',   # or your MySQL server IP
+        'PORT': '41543',
     }
 }
 
